@@ -67,6 +67,9 @@ Plug 'tpope/vim-repeat'
 " Lightweight status bar at the bottom of the vim terminal
 Plug 'itchyny/lightline.vim'
 
+" FZF
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 " FZF support in vim
 Plug 'junegunn/fzf.vim'
 
