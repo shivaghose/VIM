@@ -34,6 +34,12 @@ Plugin 'tomtom/tcomment_vim'
 " Syntastic for linting and syntax-stuff
 Plugin 'scrooloose/syntastic'
 
+" To insert lines before or after a line.
+Plugin 'tpope/vim-unimpaired'
+
+" To handle commenting
+Plugin 'scrooloose/nerdcommenter'
+
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -153,3 +159,7 @@ endfunction
 " roslaunch xml syntax hilighting with inline yaml support
 " From https://gist.github.com/jbohren/5964014
 autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
+
+" Reselect visual block after indent/outdent indent visual
+xnoremap < <gv
+xnoremap > >gv
