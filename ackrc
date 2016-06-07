@@ -24,3 +24,4 @@
 # Manage ROS file types
 --type-set=ros=.msg,.launch
 --type-set=rosbags=.bag
+--type-set=rosconfig=.launch,.msg,.xml,.txt
