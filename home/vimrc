@@ -287,3 +287,9 @@ autocmd FileType c,cpp,h,hpp,python autocmd BufWritePre <buffer> :%s/\s\+$//e
 " Python. See https://bugs.archlinux.org/task/35616
 set regexpengine=1
 
+" Disable arrow-keys: break bad habits
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
