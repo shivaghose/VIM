@@ -46,6 +46,9 @@ Plug 'xolox/vim-misc'
 " VIM-ROS for ROS features
 Plug 'taketwo/vim-ros'
 
+" Syntax support for roslaunch files
+Plug 'https://github.com/jbohren/vim-ros'
+
 " Builds code behind the scenes
 Plug 'tpope/vim-dispatch'
 
