@@ -18,9 +18,6 @@ Plugin 'tpope/vim-fugitive'
 " YouCompleteMe for auto completion
 Plugin 'Valloric/YouCompleteMe'
 
-" The badwolf colour scheme
-Plugin 'sjl/badwolf'
-
 " NERD Tree to display directory/file structure
 Plugin 'scrooloose/nerdtree'
 
@@ -78,6 +75,15 @@ Plugin 'airblade/vim-gitgutter'
 " Get the solarized theme
 Plugin 'altercation/vim-colors-solarized'
 
+" Used to repeat plugin commands with:
+Plugin 'tpope/vim-repeat'
+
+" Auto-format code:
+Plugin 'Chiel92/vim-autoformat'
+
+" CtrlP to search for files and buffers
+Plugin 'kien/ctrlp.vim'
+
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -95,8 +101,6 @@ filetype plugin indent on    " required
 " " see :h vundle for more details or wiki for FAQ
 " " Put your non-Plugin stuff after this line
 
-" awesome colorscheme
-" colorscheme badwolf
 
 " enable syntax highlighting
 syntax enable
@@ -119,6 +123,7 @@ let g:solarized_contrast="normal" " normal|high|low contrast
 
 let g:solarized_visibility="normal" " normal|high|low effect on whitespace characters
 
+" colorscheme default
 colorscheme solarized
 
 
@@ -172,8 +177,6 @@ set hlsearch
 nnoremap j gj
 nnoremap k gk
 
-" Include Pathogen in the start up list:
-execute pathogen#infect()
 filetype plugin indent on
 
 " Syntastic settings:
@@ -305,5 +308,15 @@ let g:gitgutter_max_signs = 200
 " FZF binding for fuzzy search.
 set rtp+=~/.fzf
 
+" Remap git-gutteri hunk traversal to more semantic keys i.e. ]h and [h
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
 
+" Enable the use of a mouse
+set mouse=a
 
+" Adds clang format formatting to the current buffer:
+map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
+imap <C-K> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
+
+highlight LineNr ctermfg=grey
