@@ -90,6 +90,16 @@ Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 
+
+" number of visual spaces per TAB
+set tabstop=4
+" number of spaces in tab when editing
+set softtabstop=4
+" expand tabs into spaces
+set expandtab
+" when using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
+
 " Enable the solarized colour scheme
 set background=dark
 " set term=xterm-256color
