@@ -66,11 +66,17 @@ Plugin 'vim-scripts/a.vim'
 " For XML editing. Use \c or \C 
 Plugin 'othree/xml.vim'
 
-" Ultisnips for code templates.
-Plugin 'SirVer/ultisnips'
+" " Ultisnips for code templates.
+" Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+
+" Visualizes changes in git
+Plugin 'airblade/vim-gitgutter'
+
+" Get the solarized theme
+Plugin 'altercation/vim-colors-solarized'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -94,6 +100,10 @@ filetype plugin indent on    " required
 
 " enable syntax highlighting
 syntax enable
+
+" Solarized!
+set background=dark
+colorscheme solarized
 
 " show line numbers
 set number
@@ -157,12 +167,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" ROS auto-complete using YouCompleteMe from 
-"           https://github.com/taketwo/vim-ros
-let g:ycm_semantic_triggers = {
-\   'roslaunch' : ['="', '$(', '/'],
-\   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
-\ }
 
 " Move cursor by display lines when wrapping
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
@@ -243,17 +247,18 @@ set colorcolumn=81
 highlight ColorColumn ctermbg=darkgray
 
 " YouCompleteMe extra configuration options. 
-" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_always_populate_location_list = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_semantic_triggers = {
  \ 'c' : ['->', '.'],
+ \   'cpp,objcpp' : ['->', '.', '::'],
+ \   'roslaunch' : ['="', '$(', '/'],
+ \   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
 \ }
-
-
 
 " Open vim-links in an existing tab (if possible) or a new tab (otherwise)
 set switchbuf+=usetab,newtab
@@ -261,13 +266,21 @@ set switchbuf+=usetab,newtab
 " Open NERDTreeTabs on start up
 let g:nerdtree_tabs_open_on_console_startup = 1
 
-" Trigger configuration. Do not use <tab> if you use YCM
-" let g:UltiSnipsExpandTrigger="<tab>"
-" ^ Clashes with YCM
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" " Trigger configuration. Do not use <tab> if you use YCM
+" " let g:UltiSnipsExpandTrigger="<tab>"
+" " ^ Clashes with YCM
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"
+" " If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" Tell vim-ros to use catkin-tools
+let g:ros_build_system='catkin-tools'
+
+" Git gutter settings
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_max_signs = 200
+
 
