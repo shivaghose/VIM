@@ -80,6 +80,9 @@ Plug 'junegunn/fzf.vim'
 " General purpose code formatter interface (uses external formatters)
 Plug 'Chiel92/vim-autoformat'
 
+" Git support
+Plug 'airblade/vim-gitgutter'
+
 " Add plugins to the runtime-path
 call plug#end()
 
