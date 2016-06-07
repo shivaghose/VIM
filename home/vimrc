@@ -1,6 +1,6 @@
 " This uses vim-plug to manage plugins: https://github.com/junegunn/vim-plug
 
-" Install YouCompleteMe automagically 
+" Install YouCompleteMe automagically
 " source: https://github.com/junegunn/vim-plug#post-update-hooks
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -37,10 +37,10 @@ Plug 'scrooloose/syntastic'
 " To insert lines before or after a line.
 Plug 'tpope/vim-unimpaired'
 
-" To handle automatic ctag genration 
+" To handle automatic ctag genration
 Plug 'xolox/vim-easytags'
 
-" Needed by vim-easytags 
+" Needed by vim-easytags
 Plug 'xolox/vim-misc'
 
 " VIM-ROS for ROS features
@@ -58,7 +58,7 @@ Plug 'easymotion/vim-easymotion'
 " Adds ack-compatibility for VIM
 Plug 'mileszs/ack.vim'
 
-" For XML editing. Use \c or \C 
+" For XML editing. Use \c or \C
 Plug 'othree/xml.vim'
 
 " Get the solarized theme
@@ -76,7 +76,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " FZF support in vim
 Plug 'junegunn/fzf.vim'
 
-" Runs python code checkers. Remember to run 
+" Runs python code checkers. Remember to run
 " sudo pip install frosted pycodestyle mccabe
 " Plug 'andviro/flake8-vim'
 
@@ -116,11 +116,11 @@ colorscheme solarized
 set number
 
 " redraw only when we need to.
-set lazyredraw          
+set lazyredraw
 
-" show a visual line under the cursor's current line 
+" show a visual line under the cursor's current line
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Gray20 
+hi CursorLine term=bold cterm=bold guibg=Gray20
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
@@ -213,7 +213,7 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 let g:ycm_confirm_extra_conf = 1
 
 " Disable default mappings
-let g:EasyMotion_do_mapping = 0 
+let g:EasyMotion_do_mapping = 1
 " Bi-directional find motion
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
@@ -230,7 +230,7 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-" Configure spell check to auto start 
+" Configure spell check to auto start
 set spell
 " Change the highlight mode to underline
 hi clear SpellBad
@@ -240,7 +240,7 @@ hi SpellBad cterm=underline
 set colorcolumn=81
 highlight ColorColumn ctermbg=235
 
-" YouCompleteMe extra configuration options. 
+" YouCompleteMe extra configuration options.
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
