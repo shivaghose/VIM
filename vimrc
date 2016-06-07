@@ -18,12 +18,14 @@ Plugin 'tpope/vim-fugitive'
 " YouCompleteMe for auto completion
 Plugin 'Valloric/YouCompleteMe'
 
-
 " The badwolf colour scheme
 Plugin 'sjl/badwolf'
 
 " NERD Tree to display directory/file structure
 Plugin 'scrooloose/nerdtree'
+
+" NERDTree tabs to keep nerdtree open
+Plugin 'jistr/vim-nerdtree-tabs'
 
 " Auto surrounds text snippets with quotes and what-have-yous
 Plugin 'tpope/vim-surround'
@@ -54,6 +56,21 @@ Plugin 'tpope/vim-dispatch'
 
 " Handles easier vim motions
 Plugin 'easymotion/vim-easymotion'
+
+" Adds ack-compatibility for VIM
+Plugin 'mileszs/ack.vim'
+
+" a.vim to switch b/w src and header files
+Plugin 'vim-scripts/a.vim'
+
+" For XML editing. Use \c or \C 
+Plugin 'othree/xml.vim'
+
+" Ultisnips for code templates.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -223,3 +240,34 @@ hi SpellBad cterm=underline
 
 " Add a 81-character warning line
 set colorcolumn=81
+highlight ColorColumn ctermbg=darkgray
+
+" YouCompleteMe extra configuration options. 
+" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_always_populate_location_list = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_semantic_triggers = {
+ \ 'c' : ['->', '.'],
+\ }
+
+
+
+" Open vim-links in an existing tab (if possible) or a new tab (otherwise)
+set switchbuf+=usetab,newtab
+
+" Open NERDTreeTabs on start up
+let g:nerdtree_tabs_open_on_console_startup = 1
+
+" Trigger configuration. Do not use <tab> if you use YCM
+" let g:UltiSnipsExpandTrigger="<tab>"
+" ^ Clashes with YCM
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
