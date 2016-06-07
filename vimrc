@@ -49,6 +49,12 @@ Plugin 'xolox/vim-misc'
 " VIM-ROS for ROS features
 Plugin 'taketwo/vim-ros'
 
+" Builds code behind the scenes
+Plugin 'tpope/vim-dispatch'
+
+" Handles easier vim motions
+Plugin 'easymotion/vim-easymotion'
+
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -189,4 +195,31 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+let g:ycm_confirm_extra_conf = 1
 
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0 
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-s2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Configure spell check to auto start 
+set spell
+" Change the highlight mode to underline
+hi clear SpellBad
+hi SpellBad cterm=underline
+
+" Add a 81-character warning line
+set colorcolumn=81
