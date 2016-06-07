@@ -22,6 +22,17 @@ Plugin 'Valloric/YouCompleteMe'
 " The badwolf colour scheme
 Plugin 'sjl/badwolf'
 
+" NERD Tree to display directory/file structure
+Plugin 'scrooloose/nerdtree'
+
+" Auto surrounds text snippets with quotes and what-have-yous
+Plugin 'tpope/vim-surround'
+
+" Comments code
+Plugin 'tomtom/tcomment_vim'
+
+" Syntastic for linting and syntax-stuff
+Plugin 'scrooloose/syntastic'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -138,3 +149,7 @@ function ToggleWrap()
     inoremap <buffer> <silent> <End>  <C-o>g<End>
   endif
 endfunction
+
+" roslaunch xml syntax hilighting with inline yaml support
+" From https://gist.github.com/jbohren/5964014
+autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
