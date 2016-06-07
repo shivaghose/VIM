@@ -46,6 +46,9 @@ Plugin 'xolox/vim-easytags'
 " Needed by vim-easytags 
 Plugin 'xolox/vim-misc'
 
+" VIM-ROS for ROS features
+Plugin 'taketwo/vim-ros'
+
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -131,6 +134,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" ROS auto-complete using YouCompleteMe from 
+"           https://github.com/taketwo/vim-ros
+let g:ycm_semantic_triggers = {
+\   'roslaunch' : ['="', '$(', '/'],
+\   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
+\ }
+
 " Move cursor by display lines when wrapping
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
@@ -169,3 +179,14 @@ autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
 " Reselect visual block after indent/outdent indent visual
 xnoremap < <gv
 xnoremap > >gv
+
+" You Complete Me improvements found on
+" http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+
