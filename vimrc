@@ -1,167 +1,87 @@
-" Vundle is a vim plugin manager:
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" This uses vim-plug to manage plugins: https://github.com/junegunn/vim-plug
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" " alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
+" Sensible vim defaults, little better than just nocompatible
+Plug 'tpope/vim-sensible'
 
-" " Keep Plugin commands between vundle#begin/end.
-" " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+" The solarized colour scheme
+Plug 'altercation/vim-colors-solarized'
 
-" YouCompleteMe for auto completion
-Plugin 'Valloric/YouCompleteMe'
+" View uncommited changes in a repo
+Plug 'tpope/vim-fugitive'
 
-" NERD Tree to display directory/file structure
-Plugin 'scrooloose/nerdtree'
-
-" NERDTree tabs to keep nerdtree open
-Plugin 'jistr/vim-nerdtree-tabs'
+" YouCompleteMe for auto completion: remember to compile for C++ support
+Plug 'Valloric/YouCompleteMe'
 
 " Auto surrounds text snippets with quotes and what-have-yous
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " Comments code
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 
 " Syntastic for linting and syntax-stuff
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " To insert lines before or after a line.
-Plugin 'tpope/vim-unimpaired'
-
-" To handle commenting
-Plugin 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-unimpaired'
 
 " To handle automatic ctag genration 
-Plugin 'xolox/vim-easytags'
+Plug 'xolox/vim-easytags'
 
 " Needed by vim-easytags 
-Plugin 'xolox/vim-misc'
+Plug 'xolox/vim-misc'
 
 " VIM-ROS for ROS features
-Plugin 'taketwo/vim-ros'
+Plug 'taketwo/vim-ros'
 
 " Builds code behind the scenes
-Plugin 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch'
 
 " Handles easier vim motions
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 
 " Adds ack-compatibility for VIM
-Plugin 'mileszs/ack.vim'
-
-" a.vim to switch b/w src and header files
-Plugin 'vim-scripts/a.vim'
+Plug 'mileszs/ack.vim'
 
 " For XML editing. Use \c or \C 
-Plugin 'othree/xml.vim'
-
-" " Ultisnips for code templates.
-" Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-
-" Visualizes changes in git
-Plugin 'airblade/vim-gitgutter'
+Plug 'othree/xml.vim'
 
 " Get the solarized theme
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 " Used to repeat plugin commands with:
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 
-" Auto-format code:
-Plugin 'Chiel92/vim-autoformat'
+" Lightweight status bar at the bottom of the vim terminal
+Plug 'itchyny/lightline.vim'
 
-" CtrlP to search for files and buffers
-Plugin 'kien/ctrlp.vim'
+" FZF support in vim
+Plug 'junegunn/fzf.vim'
 
-" " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" " To ignore plugin indent changes, instead use:
-" "filetype plugin on
-" "
-" " Brief help
-" " :PluginList       - lists configured plugins
-" " :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" " :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
-" "
-" " see :h vundle for more details or wiki for FAQ
-" " Put your non-Plugin stuff after this line
+" Runs python code checkers. Remember to run 
+" sudo pip install frosted pycodestyle mccabe
+" Plug 'andviro/flake8-vim'
+
+" General purpose code formatter interface (uses external formatters)
+Plug 'Chiel92/vim-autoformat'
+
+" Add plugins to the runtime-path
+call plug#end()
 
 
-" enable syntax highlighting
-syntax enable
-
-" Solarized!
-set term=xterm-256color
+" Enable the solarized colour scheme
 set background=dark
-
-let g:solarized_termcolors=256
-
-let g:solarized_termtrans=1 " 1|0 background transparent
-
-let g:solarized_bold=1 " 1|0 show bold fonts
-
-let g:solarized_italic=1 " 1|0 show italic fonts
-
-let g:solarized_underline=1 " 1|0 show underlines
-
-let g:solarized_contrast="normal" " normal|high|low contrast
-
-let g:solarized_visibility="normal" " normal|high|low effect on whitespace characters
-
-" colorscheme default
 colorscheme solarized
-
-
-
 
 " show line numbers
 set number
-
-" number of visual spaces per TAB
-set tabstop=4
-
-" number of spaces in tab when editing
-set softtabstop=4   
-
-" expand tabs into spaces
-set expandtab
-
-" indent when moving to the next line while writing code
-set autoindent
-
-" load filetype-specific indent files - This both turns on filetype detection 
-"     and allows loading of language specific indentation files based on that 
-"     detection. For me, this means the python indentation file that lives at 
-"     ~/.vim/indent/python.vim gets loaded every time I open a *.py file.
-filetype indent on      
-
-" when using the >> or << commands, shift lines by 4 spaces
-set shiftwidth=4
 
 " redraw only when we need to.
 set lazyredraw          
 
 " show a visual line under the cursor's current line 
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Gray20
-
-" show the matching part of the pair for [] {} and ()
-set showmatch
+hi CursorLine term=bold cterm=bold guibg=Gray20 
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
@@ -170,8 +90,21 @@ let python_highlight_all = 1
 " search as characters are entered
 set incsearch
 
+" Use smartcase sensitive search (ignores case unless capitalization is used)
+set smartcase
+
 " highlight matches
 set hlsearch
+
+" The Silver Searcher specific configs
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag over ack in ack.vim
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+
+endif
+
 
 " move vertically by visual line
 nnoremap j gj
@@ -285,19 +218,6 @@ let g:ycm_semantic_triggers = {
 " Open vim-links in an existing tab (if possible) or a new tab (otherwise)
 set switchbuf+=usetab,newtab
 
-" Open NERDTreeTabs on start up
-let g:nerdtree_tabs_open_on_console_startup = 1
-
-" " Trigger configuration. Do not use <tab> if you use YCM
-" " let g:UltiSnipsExpandTrigger="<tab>"
-" " ^ Clashes with YCM
-" let g:UltiSnipsExpandTrigger="<c-j>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"
-" " If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
-
 " Tell vim-ros to use catkin-tools
 let g:ros_build_system='catkin-tools'
 
@@ -315,8 +235,16 @@ nmap [h <Plug>GitGutterPrevHunk
 " Enable the use of a mouse
 set mouse=a
 
-" Adds clang format formatting to the current buffer:
-map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
-imap <C-K> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
+" Use ctrl+k to invoke the auto-formatter
+map <C-K> :Autoformat<CR>
+imap <C-K> <c-o>:Autoformat<CR>
 
 highlight LineNr ctermfg=grey
+
+" Remove trailing white spaces from source code
+autocmd FileType c,cpp,h,hpp,python autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" Use the old regex engine for vim. The new one in 7.0 causes slow downs in
+" Python. See https://bugs.archlinux.org/task/35616
+set regexpengine=1
+
