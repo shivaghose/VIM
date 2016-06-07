@@ -102,8 +102,27 @@ filetype plugin indent on    " required
 syntax enable
 
 " Solarized!
+set term=xterm-256color
 set background=dark
+
+let g:solarized_termcolors=256
+
+let g:solarized_termtrans=1 " 1|0 background transparent
+
+let g:solarized_bold=1 " 1|0 show bold fonts
+
+let g:solarized_italic=1 " 1|0 show italic fonts
+
+let g:solarized_underline=1 " 1|0 show underlines
+
+let g:solarized_contrast="normal" " normal|high|low contrast
+
+let g:solarized_visibility="normal" " normal|high|low effect on whitespace characters
+
 colorscheme solarized
+
+
+
 
 " show line numbers
 set number
@@ -134,7 +153,7 @@ set lazyredraw
 
 " show a visual line under the cursor's current line 
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Gray40
+hi CursorLine term=bold cterm=bold guibg=Gray20
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
@@ -244,7 +263,7 @@ hi SpellBad cterm=underline
 
 " Add a 81-character warning line
 set colorcolumn=81
-highlight ColorColumn ctermbg=darkgray
+highlight ColorColumn ctermbg=235
 
 " YouCompleteMe extra configuration options. 
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -282,5 +301,9 @@ let g:ros_build_system='catkin-tools'
 " Git gutter settings
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_max_signs = 200
+
+" FZF binding for fuzzy search.
+set rtp+=~/.fzf
+
 
 
