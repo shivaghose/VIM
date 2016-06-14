@@ -47,7 +47,7 @@ Plug 'xolox/vim-misc'
 Plug 'taketwo/vim-ros'
 
 " Syntax support for roslaunch files
-Plug 'https://github.com/jbohren/vim-ros'
+Plug 'https://github.com/jbohren/vim-ros', {'as' : 'jbohren-vim-ros'}
 
 " Builds code behind the scenes
 Plug 'tpope/vim-dispatch'
