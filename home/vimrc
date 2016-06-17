@@ -76,10 +76,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " FZF support in vim
 Plug 'junegunn/fzf.vim'
 
-" Runs python code checkers. Remember to run
-" sudo pip install frosted pycodestyle mccabe
-" Plug 'andviro/flake8-vim'
-
 " General purpose code formatter interface (uses external formatters)
 Plug 'Chiel92/vim-autoformat'
 
@@ -274,6 +270,8 @@ nmap [h <Plug>GitGutterPrevHunk
 " Enable the use of a mouse
 set mouse=a
 
+" Use YAPF for Python
+let g:formatters_python = ['yapf']
 " Use ctrl+k to invoke the auto-formatter
 map <C-K> :Autoformat<CR>
 imap <C-K> <c-o>:Autoformat<CR>
