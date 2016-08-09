@@ -280,8 +280,12 @@ imap <C-K> <c-o>:Autoformat<CR>
 
 highlight LineNr ctermfg=grey
 
-" Remove trailing white spaces from source code
-autocmd FileType c,cpp,h,hpp,python,sh autocmd BufWritePre <buffer> :%s/\s\+$//e
+" Remove trailing white spaces
+function TrimTrailingWhiteSpaces()
+  %s/\s\+$//e
+endfunction
+" Remove trailing white spaces from source code when saving:
+autocmd FileType c,cpp,h,hpp,python,sh autocmd BufWritePre <buffer> :call TrimTrailingWhiteSpaces()
 
 " Use the old regex engine for vim. The new one in 7.0 causes slow downs in
 " Python. See https://bugs.archlinux.org/task/35616
