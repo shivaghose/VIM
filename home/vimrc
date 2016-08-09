@@ -232,8 +232,10 @@ set spell
 hi clear SpellBad
 hi SpellBad cterm=underline
 
-" Add a 81-character warning line
-set colorcolumn=81
+" Add a 80-character warning line for most files
+set colorcolumn=80
+" Add a 100-character warning line for C/C++
+autocmd FileType c,cpp,h,hpp set colorcolumn=100
 highlight ColorColumn ctermbg=235
 
 " YouCompleteMe extra configuration options.
