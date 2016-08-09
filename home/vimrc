@@ -291,6 +291,13 @@ autocmd FileType c,cpp,h,hpp,python,sh autocmd BufWritePre <buffer> :call TrimTr
 " Python. See https://bugs.archlinux.org/task/35616
 set regexpengine=1
 
+" Awesomeness from Gabe:
+" Replace ctrl-l with a paste that preserves the clipboard
+xnoremap <C-l> pgvy
+
+" ctrl-g to find and replace the selected text
+vnoremap <C-g> "hy:%s/<C-r>h//gc<left><left><left>
+
 " Disable arrow-keys: break bad habits
 noremap <Up> <NOP>
 noremap <Down> <NOP>
