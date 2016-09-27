@@ -82,6 +82,10 @@ Plug 'Chiel92/vim-autoformat'
 " Git support
 Plug 'airblade/vim-gitgutter'
 
+" proselint lints text files
+" Get it with: pip install proselint
+Plug 'amperser/proselint', { 'rtp': '/plugins/vim/syntastic_proselint/' }
+
 " Add plugins to the runtime-path
 call plug#end()
 
@@ -156,6 +160,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" Markdown linting
+let g:syntastic_markdown_checkers = ['proselint']
 
 
 " Move cursor by display lines when wrapping
@@ -298,9 +304,13 @@ xnoremap <C-l> pgvy
 " ctrl-g to find and replace the selected text
 vnoremap <C-g> "hy:%s/<C-r>h//gc<left><left><left>
 
+" .md files should be treated as markdown
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
 " Disable arrow-keys: break bad habits
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
 
