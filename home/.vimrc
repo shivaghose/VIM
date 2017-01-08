@@ -70,6 +70,9 @@ Plug 'tpope/vim-repeat'
 " Lightweight status bar at the bottom of the vim terminal
 Plug 'itchyny/lightline.vim'
 
+" Lightline/airline support for tmux
+Plug 'edkolev/tmuxline.vim'
+
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
