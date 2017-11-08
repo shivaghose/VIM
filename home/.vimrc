@@ -86,6 +86,13 @@ Plug 'airblade/vim-gitgutter'
 " Get it with: pip install proselint
 Plug 'amperser/proselint', { 'rtp': '/plugins/vim/syntastic_proselint/' }
 
+" Markdown support
+Plug 'tpope/vim-markdown'
+
+" Editor config allows you to keep consistent editor options across multiple
+" editors
+Plug 'editorconfig/editorconfig-vim'
+
 " Add plugins to the runtime-path
 call plug#end()
 
@@ -130,6 +137,7 @@ let python_highlight_all = 1
 set incsearch
 
 " Use smartcase sensitive search (ignores case unless capitalization is used)
+set ignorecase
 set smartcase
 
 " highlight matches
@@ -313,4 +321,12 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Editor config setup: (tags: editorconfig)
+let g:EditorConfig_exec_path = $EDITOR_CONFIG_PATH
+
+" Force vim to treat .md files as markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Pretty print JSON
+command -range=% FormatJSON <line1>,<line2>!python -m json.tool
 
