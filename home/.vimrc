@@ -55,9 +55,6 @@ Plug 'tpope/vim-dispatch'
 " Handles easier vim motions
 Plug 'easymotion/vim-easymotion'
 
-" Adds ack-compatibility for VIM
-Plug 'mileszs/ack.vim'
-
 " For XML editing. Use \c or \C
 Plug 'othree/xml.vim'
 
@@ -143,13 +140,13 @@ set smartcase
 " highlight matches
 set hlsearch
 
-" The Silver Searcher specific configs
-if executable('ag')
-  " Use ag over grep
+" Better searching in vim: use ripgrep or ag if available
+if executable('rg')
+  " ripgrep or rg is SUPER fast, use that if available
+  set grepprg=rg\ --vimgrep
+elseif executable('ag')
+  " Otherwise, see if we can use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag over ack in ack.vim
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-
 endif
 
 
