@@ -1,0 +1,10 @@
+# COMMONLY USED BASH CONFIG
+
+# HISTORY
+## don't put duplicate lines or lines starting with space in the history.
+HISTCONTROL=erasedups:ignoreboth:ignorespace
+HISTSIZE=2500
+HISTFILESIZE=5000
+# Use the up and down arrow keys for partial history search
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'

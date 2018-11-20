@@ -43,6 +43,8 @@ Plug 'xolox/vim-easytags'
 " Needed by vim-easytags
 Plug 'xolox/vim-misc'
 
+" Plug 'ludovicchabant/vim-gutentags'
+
 " VIM-ROS for ROS features
 Plug 'taketwo/vim-ros'
 
@@ -51,6 +53,9 @@ Plug 'https://github.com/jbohren/vim-ros', {'as' : 'jbohren-vim-ros'}
 
 " Builds code behind the scenes
 Plug 'tpope/vim-dispatch'
+
+" Convert snake_case to CamelCase and vis-versa
+Plug 'tpope/vim-abolish'
 
 " Handles easier vim motions
 Plug 'easymotion/vim-easymotion'
@@ -66,6 +71,11 @@ Plug 'tpope/vim-repeat'
 
 " Lightweight status bar at the bottom of the vim terminal
 Plug 'itchyny/lightline.vim'
+
+" Support for tmux (see https://github.com/edkolev/tmuxline.vim)
+"   When running vim, use `:TmuxlineSnapshot ~/lightline_tmux.conf` to
+"   generate a tmux status bar config
+Plug 'edkolev/tmuxline.vim'
 
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -89,6 +99,12 @@ Plug 'tpope/vim-markdown'
 " Editor config allows you to keep consistent editor options across multiple
 " editors
 Plug 'editorconfig/editorconfig-vim'
+
+" Google's bazel plug-in requires maktaba
+Plug 'google/vim-maktaba'
+
+" Build bazel code bases from the editor
+Plug 'bazelbuild/vim-bazel'
 
 " Add plugins to the runtime-path
 call plug#end()
@@ -270,7 +286,7 @@ set switchbuf+=usetab,newtab
 let g:ros_build_system='catkin-tools'
 
 " Git gutter settings
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 let g:gitgutter_max_signs = 200
 
 " FZF binding for fuzzy search.
