@@ -106,6 +106,9 @@ Plug 'google/vim-maktaba'
 " Build bazel code bases from the editor
 Plug 'bazelbuild/vim-bazel'
 
+" Highlight parentheses to make code a little more readable
+Plug 'junegunn/rainbow_parentheses.vim'
+
 " Add plugins to the runtime-path
 call plug#end()
 
@@ -343,3 +346,26 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " Pretty print JSON
 command -range=% FormatJSON <line1>,<line2>!python -m json.tool
 
+" Highlight TODO, FIXME, NOTE, etc.
+if has('autocmd') && v:version > 701
+    augroup todo
+        autocmd!
+        autocmd Syntax * call matchadd(
+                    \ 'Todo',
+                    \ '\v\W\zs<(NOTE|INFO|IDEA|TODO|FIXME|CHANGED|XXX|BUG|HACK|REVIEW)>'
+                    \ )
+    augroup END
+endif
+
+" RAINBOW PARENTHESES
+" Disable some colors as they are hard to see in solarized
+let g:rainbow#blacklist = [233, 234, 239]
+" Support {}s and []s:
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+
+
+" function GetSelectedLines()
+"     let line_start = getpos("'<")
+"     let line_end = getpos("'>")
+"     echom line_start . ":" . line_end
+" endfunction
