@@ -8,3 +8,7 @@ HISTFILESIZE=5000
 # Use the up and down arrow keys for partial history search
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+
+# Put dirs first
+
+alias ls='ls --color=auto --group-directories-first'

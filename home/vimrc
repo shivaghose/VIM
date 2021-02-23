@@ -46,7 +46,7 @@ Plug 'xolox/vim-misc'
 " Plug 'ludovicchabant/vim-gutentags'
 
 " VIM-ROS for ROS features
-Plug 'taketwo/vim-ros'
+" Plug 'taketwo/vim-ros'
 
 " Syntax support for roslaunch files
 Plug 'https://github.com/jbohren/vim-ros', {'as' : 'jbohren-vim-ros'}
@@ -62,9 +62,6 @@ Plug 'easymotion/vim-easymotion'
 
 " For XML editing. Use \c or \C
 Plug 'othree/xml.vim'
-
-" Get the solarized theme
-Plug 'altercation/vim-colors-solarized'
 
 " Used to repeat plugin commands with:
 Plug 'tpope/vim-repeat'
@@ -114,14 +111,14 @@ call plug#end()
 
 
 
-" number of visual spaces per TAB
-set tabstop=4
-" number of spaces in tab when editing
-set softtabstop=4
-" expand tabs into spaces
-set expandtab
-" when using the >> or << commands, shift lines by 4 spaces
-set shiftwidth=4
+" " number of visual spaces per TAB
+" set tabstop=4
+" " number of spaces in tab when editing
+" set softtabstop=4
+" " expand tabs into spaces
+" set expandtab
+" " when using the >> or << commands, shift lines by 4 spaces
+" set shiftwidth=4
 
 " Enable the solarized colour scheme
 set background=dark
@@ -291,19 +288,24 @@ let g:ros_build_system='catkin-tools'
 " Git gutter settings
 set signcolumn=yes
 let g:gitgutter_max_signs = 200
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
+
 
 " FZF binding for fuzzy search.
 set rtp+=~/.fzf
 
 " Remap git-gutteri hunk traversal to more semantic keys i.e. ]h and [h
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 " Enable the use of a mouse
 set mouse=a
 
-" Use YAPF for Python
-let g:formatters_python = ['yapf']
+let g:formatters_python = ['black']
 " Use ctrl+k to invoke the auto-formatter
 map <C-K> :Autoformat<CR>
 imap <C-K> <c-o>:Autoformat<CR>
